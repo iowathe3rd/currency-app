@@ -1,12 +1,12 @@
-import useCurrencies from "./api/useCurrencies.ts";
+import React from "react";
+import CurrencyGrid from "./components/CurrencyGrid.tsx";
 
 function App() {
-  const { isLoading, data, error } = useCurrencies('metal')
-  console.log(data)
-  console.log(error)
-  console.log(isLoading)
-  // render i
-  return <div>hello</div>
+  return (
+      <React.Fragment>
+        <CurrencyGrid/>
+      </React.Fragment>
+  )
 }
 
 export default App

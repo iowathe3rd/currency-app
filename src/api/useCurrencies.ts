@@ -1,7 +1,8 @@
 import useSWR from "swr";
 import fetcher from "./fetcher.ts";
 
-export interface CurrencyData {
+
+export interface CurrencyDetails {
     symbol: string;
     name: string;
     symbol_native: string;
@@ -13,18 +14,26 @@ export interface CurrencyData {
     countries: string[];
 }
 
-export interface CurrencyObject {
-    [currencyCode: string]: CurrencyData;
+// Define interface for currency data
+export interface CurrencyData {
+    [currencyCode: string]: CurrencyDetails;
 }
 
-export interface CurrencyAPIResponse {
-    data: CurrencyObject;
+// Define interface for API response
+interface CurrencyAPIResponse {
+    data?: CurrencyData;
+    error?: unknown;
+    isLoading: boolean;
 }
 
-export default function useCurrencies (type: 'metal' | 'fiat' | 'crypto') {
-    const { data, error, isLoading } = useSWR<CurrencyAPIResponse>(`https://api.currencyapi.com/v3/currencies?type=${type}`, fetcher)
-    return {
+export default function useCurrencies(type: 'metal' | 'fiat' | 'crypto') {
+    const {
         data,
+        error,
+        isLoading
+    } = useSWR<CurrencyAPIResponse>(`https://api.currencyapi.com/v3/currencies?type=${type}`, fetcher)
+    return {
+        currencies: data?.data,
         error,
         isLoading
     }
