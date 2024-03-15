@@ -6,12 +6,15 @@ import '@radix-ui/themes/styles.css'
 import {Theme} from "@radix-ui/themes";
 import {SWRConfig} from "swr";
 import config from "./api/config.ts";
+import Layout from "./layout";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
       <SWRConfig value={config}>
           <Theme>
-              <App />
+              <Layout>
+                  <App />
+              </Layout>
           </Theme>
       </SWRConfig>
   </React.StrictMode>,
