@@ -6,7 +6,7 @@ const Layout: React.FC<PropsWithChildren> = ({children}) => {
     return (
         <React.Fragment>
             <Header/>
-            <Container size={{xs: '1', md: '2', lg: '3'}}>
+            <Container size={{xs: '1', md: '2', lg: '3'}} p={'5'}>
                 {children}
             </Container>
         </React.Fragment>

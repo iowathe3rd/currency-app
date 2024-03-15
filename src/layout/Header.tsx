@@ -1,10 +1,12 @@
 import React from 'react';
-import {Box, Heading} from "@radix-ui/themes";
+import {Box, Flex, Heading} from "@radix-ui/themes";
 
 const Header: React.FC = () => {
     return (
-        <Box p={'2'} className={'border border-black'}>
-            <Heading>Currencies</Heading>
+        <Box p={'2'} height={'9'} className={'border border-black'}>
+            <Flex direction={'row'} justify={'between'} align={'center'}>
+                <Heading>Currencies</Heading>
+            </Flex>
         </Box>
     );
 };

@@ -16,7 +16,7 @@ const CurrencyGrid: React.FC = () => {
     }, [currencies, isLoading]);
 
     if (isLoading) return <Loader />;
-    if (error) throw error;
+    // if (error) throw error;
 
     return (
         <Grid columns={{xs: '1', md: '1', lg: '2'}} gap="3">
